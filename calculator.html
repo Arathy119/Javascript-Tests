@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        #calc{
+            background-color:rgb(233, 214, 190);
+            width: 400px;
+            height: 500px;
+            margin:auto;
+            text-align: center;
+            padding-top: 40px;
+            
+
+        }
+        input{
+            margin: 20px 10px;
+            padding: 10px;
+            width: 220px;
+            font-size: 16px;
+            
+        }
+        button, #operator {
+            width: 120px;
+            font-size: 16px;
+            padding: 10px; 
+            margin: 10px; 
+        }
+        button:hover{
+            background-color: rgb(186, 136, 233);
+            
+        }
+        
+        
+        
+      
+    </style>
+</head>
+<body>
+
+    <div id="calc">
+        <input type="number" id="first" placeholder="First Number"><br>
+        <input type="number" id="second" placeholder="Second Number"><br>
+        <select id="operator">
+            <option disabled selected>Operator</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="/">/</option>
+            <option value="*">*</option>
+        </select><br>
+        <button type="button" onclick="Result()">=</button><br>
+        <input type="text" id="equal" placeholder="Result" readonly>
+    </div>
+
+    <script>
+        function subtract(x, y) {
+            return x - y;
+        }
+
+        function divide(x, y) {
+            if (y === 0) {
+                return "Error: Division by 0";
+            }
+            return x / y;
+        }
+
+        function add(x, y) {
+            return x + y;
+        }
+
+        function multiply(x, y) {
+            return x * y;
+        }
+
+        function check() {
+            var firstNum = parseFloat(document.getElementById("first").value);
+            var secondNum = parseFloat(document.getElementById("second").value);
+            var operator = document.getElementById("operator").value;
+
+            if (isNaN(firstNum) || isNaN(secondNum)) {
+                return "Error: Invalid Input";
+            }
+
+            if (operator === '+') {
+                return add(firstNum, secondNum);
+            } else if (operator === '-') {
+                return subtract(firstNum, secondNum);
+            } else if (operator === '/') {
+                return divide(firstNum, secondNum);
+            } else if (operator === '*') {
+                return multiply(firstNum, secondNum);
+            } else {
+                return "Error: Select an operator";
+            }
+        }
+
+        function Result() {
+            var result = check();
+            document.getElementById('equal').value = result;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Winner</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: cursive;
+        }
+        h3 {
+            text-align: center;
+            margin: 30px;
+            font-size: 50px;
+        }
+        #container{
+            text-align: center;
+        }
+        
+        #btn {
+          
+            background-color: slateblue;
+            opacity: 0.8;
+            color: #fff;
+            padding: 15px;
+            font-size: 20px;
+            margin-top: 50px;}
+
+        #btn:hover{
+            background-color: rgb(185, 193, 231);
+            color: black;
+
+        } 
+        
+        #result {
+            text-align: center;
+            margin-top: 120px;
+            font-size: 30px;
+            color: red;
+        }
+        .modal-body {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Lottery Winner</h3>
+
+    <div id="container">
+        <button type="button" onclick="Winner()" class="btn" data-toggle="modal" data-target="#myModal" id="btn">Click here</button>
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Lottery Winner</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" id="modalValue"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <p id="result"></p>
+
+    <script>
+        function Winner() {
+            
+            var number = [12, 24, 35, 86, 74, 67, 87, 10];
+            var randNum = Math.floor(Math.random() * number.length);
+            var winnerNum = number[randNum];
+            console.log(`The lottery winner number is ${winnerNum}`);
+            document.getElementById('result').innerHTML = `The lottery winner number is ${winnerNum}`;
+            document.getElementById('modalValue').innerHTML = `The lottery winner number is ${winnerNum}`;
+        }
+    </script>
+
+</body>
+</html>
